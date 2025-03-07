@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>n++ button</title>
+  <style>
+    /* Remove all scrolling */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* No scrollbars */
+      background: #f0f0f0;
+    }
+
+    /* Full-screen container */
+    #container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Full-screen green button with "n++" centered */
+    #coverButton {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #4caf50;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #coverButton span {
+      font-size: 48px;
+      color: #fff;
+      font-family: sans-serif;
+    }
+
+    /* The Tetris iframe (full screen), hidden initially */
+    #frame {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <!-- Full-screen cover button -->
+  <button id="coverButton">
+    <span>n++</span>
+  </button>
+
+  <!-- Full-screen iframe for Tetris -->
+  <iframe id="frame" frameborder="0"></iframe>
+</div>
+
+<script>
+// 1) Tetris code with on-screen (touch) controls
+//    The Tetris game is 800×800 in the center, 
+//    plus Home/Reset/Skip at the top center, 
+//    and new on-screen controls on the left & right.
+
+const htmlContent = ``;
+
+// 2) On button click, convert `HTML` into a data URL, load it in the iframe, hide the button, show the iframe.
+document.getElementById("coverButton").addEventListener("click", function() {
+  const dataURL = "data:text/html;charset=utf-8," + encodeURIComponent(htmlContent);
+  const iframe = document.getElementById("frame");
+  iframe.src = dataURL;
+  // Hide the green cover button, show the Tetris iframe
+  this.style.display = "none";
+  iframe.style.display = "block";
+});
+</script>
+</body>
+</html>
