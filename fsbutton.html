@@ -38,22 +38,16 @@
   <script>
     document.getElementById("launchButton").addEventListener("click", function() {
 
-      // Tetris game code, now with on-screen touch controls added.
-      // The canvas is 640×640, your scoreboard/logic remain the same,
-      // plus new #leftSideControls & #rightSideControls for up/down/left/right.
-
       const GameCodeHtml = ``;
 
-      // Build a data URL from the Tetris game code
+      // Build a data URL from the Tegame code
       const DataURL = "data:text/html;charset=utf-8," + encodeURIComponent(GameCodeHtml);
-
-      // Build the HTML for the new window that loads our Tetris code in an iframe
       const newPageHTML = `
         <!DOCTYPE html>
         <html>
           <head>
             <meta charset="UTF-8">
-            <title>Tetris Game</title>
+            <title>Game</title>
             <style>
               html, body {
                 margin: 0; padding: 0; height: 100%;
